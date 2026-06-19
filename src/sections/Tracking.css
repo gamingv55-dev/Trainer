@@ -1,0 +1,161 @@
+.tracking__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.tracking__features {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.8rem;
+}
+.tracking__features li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--text-soft);
+}
+.tracking__check {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gold-glow);
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ---- Dashboard ---- */
+.tracking__dash {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-areas:
+    'progress nutrition'
+    'workouts nutrition'
+    'checkin checkin';
+  gap: 1rem;
+}
+
+.dash-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 1.3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.dash-card--progress { grid-area: progress; }
+.dash-card--workouts { grid-area: workouts; }
+.dash-card--nutrition { grid-area: nutrition; display: flex; flex-direction: column; }
+.dash-card--checkin {
+  grid-area: checkin;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.dash-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.dash-card__head svg { color: var(--gold); }
+
+.dash-card__big {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--text);
+  margin-top: 0.8rem;
+  line-height: 1;
+}
+.dash-card__sub { font-size: 0.78rem; color: var(--text-muted); }
+
+.dash-line { width: 100%; height: 52px; margin-top: 0.6rem; }
+
+.dash-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 52px;
+  margin-top: 0.8rem;
+}
+.dash-bars span {
+  flex: 1;
+  background: var(--grad-gold);
+  border-radius: 3px 3px 0 0;
+  opacity: 0.85;
+}
+
+/* nutrition ring */
+.dash-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin-top: auto;
+  padding-top: 0.8rem;
+}
+.dash-ring svg { width: 120px; transform: rotate(-90deg); }
+.ring-bg { fill: none; stroke: var(--surface-2); stroke-width: 3.2; }
+.ring-fill {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-dasharray: 100 100;
+  stroke-dashoffset: 12;
+}
+.dash-ring__label {
+  position: absolute;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.dash-ring__label strong { font-family: var(--font-display); font-size: 1.15rem; color: var(--text); }
+.dash-ring__label span { font-size: 0.68rem; color: var(--text-muted); }
+
+/* checkin */
+.dash-card__avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-strong);
+}
+.dash-card__name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  color: var(--text);
+  text-transform: none;
+  letter-spacing: 0.3px;
+}
+.dash-card__badge {
+  margin-left: auto;
+  background: var(--grad-gold);
+  color: #1a1407;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--r-pill);
+}
+
+@media (max-width: 880px) {
+  .tracking__grid { grid-template-columns: 1fr; }
+  .tracking__dash { max-width: 520px; }
+}
+@media (max-width: 420px) {
+  .tracking__dash {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'progress' 'workouts' 'nutrition' 'checkin';
+  }
+}
