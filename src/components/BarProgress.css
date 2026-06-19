@@ -1,0 +1,47 @@
+.bar-progress {
+  position: fixed;
+  top: var(--header-h);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 49;
+  width: min(280px, 72vw);
+  padding: 6px 10px 8px;
+  background: rgba(12, 13, 15, 0.72);
+  backdrop-filter: blur(12px);
+  border-radius: 0 0 var(--r-md) var(--r-md);
+  border: 1px solid var(--border);
+  border-top: none;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.bar-progress.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.bar-progress__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.bar-progress__track rect {
+  fill: rgba(255, 255, 255, 0.06);
+}
+
+.bar-progress__fill {
+  display: none;
+}
+
+.bar-progress__gold rect {
+  fill: var(--gold);
+}
+
+/* Glow on the disc weights when filled */
+.bar-progress__gold {
+  filter: drop-shadow(0 0 3px rgba(201, 164, 92, 0.55));
+}
